@@ -1,1 +1,4 @@
-Visual Studio not found at: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022 RC Configure Disable profile
+"D:\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" E:\Uczelnia\MHE\LAB1\MHE
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/Uczelnia/MHE/LAB1/MHE/cmake-build-debug

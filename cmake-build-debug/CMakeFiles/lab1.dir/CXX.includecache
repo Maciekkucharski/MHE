@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Uczelnia/MHE/LAB1/MHE/main.cpp
+vector
+-
+iostream
+-
+functional
+-
+subset_sum_problem.hpp
+E:/Uczelnia/MHE/LAB1/MHE/subset_sum_problem.hpp
+
+E:/Uczelnia/MHE/LAB1/MHE/subset_sum_problem.hpp
+
