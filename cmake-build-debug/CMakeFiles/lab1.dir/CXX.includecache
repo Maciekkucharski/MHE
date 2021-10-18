@@ -6,15 +6,27 @@
 
 #IncludeRegexTransform: 
 
-E:/Uczelnia/MHE/LAB1/MHE/main.cpp
+C:/Users/s20153/CLion/MHE/main.cpp
 vector
 -
 iostream
 -
 functional
 -
+fstream
+-
 subset_sum_problem.hpp
-E:/Uczelnia/MHE/LAB1/MHE/subset_sum_problem.hpp
+C:/Users/s20153/CLion/MHE/subset_sum_problem.hpp
 
-E:/Uczelnia/MHE/LAB1/MHE/subset_sum_problem.hpp
+C:/Users/s20153/CLion/MHE/subset_sum_problem.cpp
+vector
+-
+iostream
+-
+fstream
+-
+functional
+-
+
+C:/Users/s20153/CLion/MHE/subset_sum_problem.hpp
 

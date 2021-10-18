@@ -1,3 +1,3 @@
-E:/Uczelnia/MHE/LAB1/MHE/cmake-build-debug/CMakeFiles/lab1.dir
-E:/Uczelnia/MHE/LAB1/MHE/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/Uczelnia/MHE/LAB1/MHE/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/s20153/CLion/MHE/cmake-build-debug/CMakeFiles/lab1.dir
+C:/Users/s20153/CLion/MHE/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s20153/CLion/MHE/cmake-build-debug/CMakeFiles/rebuild_cache.dir
