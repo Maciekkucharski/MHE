@@ -59,22 +59,3 @@ void iterate_working_point(std::vector<bool> &working_point, int iterator = 0) {
     }
 }
 
-//
-//std::vector<int> subset_sum(solution sol) {
-//    std::vector<int> sum_vec;
-//    int sum = 0;
-//    log(sol);
-//    for(int i=0; i<sol.amount_of_solutions; i++){
-//        for (auto v: sol.solutions ) {
-//            for (int j = 0; j < v.size(); j++) {
-//                if (v[j]) {
-//                    sum += sol.problem[j];
-//                }
-//            }
-//            std::cout << "suma " << std::endl;
-//            sum_vec.push_back(sum);
-//
-//        }
-//    }
-//    return sum_vec;
-//}
