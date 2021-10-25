@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/s20153/CLion/MHE/main.cpp" "C:/Users/s20153/CLion/MHE/cmake-build-debug/CMakeFiles/lab1.dir/main.cpp.obj"
-  "C:/Users/s20153/CLion/MHE/subset_sum_problem.cpp" "C:/Users/s20153/CLion/MHE/cmake-build-debug/CMakeFiles/lab1.dir/subset_sum_problem.cpp.obj"
+  "C:/Users/s20153/CLionProjects/CLion/MHE/main.cpp" "C:/Users/s20153/CLionProjects/CLion/MHE/cmake-build-debug/CMakeFiles/lab1.dir/main.cpp.obj"
+  "C:/Users/s20153/CLionProjects/CLion/MHE/subset_sum_problem.cpp" "C:/Users/s20153/CLionProjects/CLion/MHE/cmake-build-debug/CMakeFiles/lab1.dir/subset_sum_problem.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

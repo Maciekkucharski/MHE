@@ -46,10 +46,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\s20153\CLion\MHE
+CMAKE_SOURCE_DIR = C:\Users\s20153\CLionProjects\CLion\MHE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\s20153\CLion\MHE\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\lab1.dir\depend.make
@@ -62,40 +62,40 @@ include CMakeFiles\lab1.dir\flags.make
 
 CMakeFiles\lab1.dir\main.cpp.obj: CMakeFiles\lab1.dir\flags.make
 CMakeFiles\lab1.dir\main.cpp.obj: ..\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\s20153\CLion\MHE\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab1.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab1.dir/main.cpp.obj"
 	C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\lab1.dir\main.cpp.obj /FdCMakeFiles\lab1.dir\ /FS -c C:\Users\s20153\CLion\MHE\main.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\lab1.dir\main.cpp.obj /FdCMakeFiles\lab1.dir\ /FS -c C:\Users\s20153\CLionProjects\CLion\MHE\main.cpp
 <<
 
 CMakeFiles\lab1.dir\main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab1.dir/main.cpp.i"
 	C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\cl.exe > CMakeFiles\lab1.dir\main.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\s20153\CLion\MHE\main.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\s20153\CLionProjects\CLion\MHE\main.cpp
 <<
 
 CMakeFiles\lab1.dir\main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab1.dir/main.cpp.s"
 	C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\lab1.dir\main.cpp.s /c C:\Users\s20153\CLion\MHE\main.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\lab1.dir\main.cpp.s /c C:\Users\s20153\CLionProjects\CLion\MHE\main.cpp
 <<
 
 CMakeFiles\lab1.dir\subset_sum_problem.cpp.obj: CMakeFiles\lab1.dir\flags.make
 CMakeFiles\lab1.dir\subset_sum_problem.cpp.obj: ..\subset_sum_problem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\s20153\CLion\MHE\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab1.dir/subset_sum_problem.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab1.dir/subset_sum_problem.cpp.obj"
 	C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\lab1.dir\subset_sum_problem.cpp.obj /FdCMakeFiles\lab1.dir\ /FS -c C:\Users\s20153\CLion\MHE\subset_sum_problem.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\lab1.dir\subset_sum_problem.cpp.obj /FdCMakeFiles\lab1.dir\ /FS -c C:\Users\s20153\CLionProjects\CLion\MHE\subset_sum_problem.cpp
 <<
 
 CMakeFiles\lab1.dir\subset_sum_problem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab1.dir/subset_sum_problem.cpp.i"
 	C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\cl.exe > CMakeFiles\lab1.dir\subset_sum_problem.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\s20153\CLion\MHE\subset_sum_problem.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\s20153\CLionProjects\CLion\MHE\subset_sum_problem.cpp
 <<
 
 CMakeFiles\lab1.dir\subset_sum_problem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab1.dir/subset_sum_problem.cpp.s"
 	C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\lab1.dir\subset_sum_problem.cpp.s /c C:\Users\s20153\CLion\MHE\subset_sum_problem.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\lab1.dir\subset_sum_problem.cpp.s /c C:\Users\s20153\CLionProjects\CLion\MHE\subset_sum_problem.cpp
 <<
 
 # Object files for target lab1
@@ -110,9 +110,9 @@ lab1.exe: CMakeFiles\lab1.dir\main.cpp.obj
 lab1.exe: CMakeFiles\lab1.dir\subset_sum_problem.cpp.obj
 lab1.exe: CMakeFiles\lab1.dir\build.make
 lab1.exe: CMakeFiles\lab1.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\s20153\CLion\MHE\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab1.exe"
 	"C:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\lab1.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MIB055~1\2019\ENTERP~1\VC\Tools\MSVC\1429~1.300\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\lab1.dir\objects1.rsp @<<
- /out:lab1.exe /implib:lab1.lib /pdb:C:\Users\s20153\CLion\MHE\cmake-build-debug\lab1.pdb /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+ /out:lab1.exe /implib:lab1.lib /pdb:C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug\lab1.pdb /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 
 # Rule to build all files generated by this target.
@@ -125,6 +125,6 @@ CMakeFiles\lab1.dir\clean:
 .PHONY : CMakeFiles\lab1.dir\clean
 
 CMakeFiles\lab1.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" C:\Users\s20153\CLion\MHE C:\Users\s20153\CLion\MHE C:\Users\s20153\CLion\MHE\cmake-build-debug C:\Users\s20153\CLion\MHE\cmake-build-debug C:\Users\s20153\CLion\MHE\cmake-build-debug\CMakeFiles\lab1.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" C:\Users\s20153\CLionProjects\CLion\MHE C:\Users\s20153\CLionProjects\CLion\MHE C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug C:\Users\s20153\CLionProjects\CLion\MHE\cmake-build-debug\CMakeFiles\lab1.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\lab1.dir\depend
 
