@@ -1,10 +1,19 @@
 #include <vector>
 #include <iostream>
-#include <fstream>
 #include <functional>
+#include <tuple>
 
+double goal_function(std::vector<bool> solution) {
+    double sum = 0;
+    for (double i = 0; i < solution.size(); ++i) {
+        if (solution[i] == true)
+            sum += pow(2,i);
+    }
+    double result = 1/sum;
+    return result;
+}
 
-void log(int sum, std::vector<bool> solution, std::vector<int> subset, std::ostream &out) {
+void log(std::vector<bool> solution, std::vector<int> subset, std::ostream &out) {
     out << "set :" << "\n";
     for (auto v: subset) {
         out << v << ", ";
@@ -15,12 +24,7 @@ void log(int sum, std::vector<bool> solution, std::vector<int> subset, std::ostr
         out << v << ", ";
     }
     out << std::endl;
-    out << "sum :" << sum << "\n";
-    if (!sum) {
-        out << "good solution\n\n";
-    } else {
-        out << "bad solution\n\n";
-    }
+    out << "result :" << goal_function(solution) << "\n\n" ;
 }
 
 std::vector<int> read(std::istream &input_file) {
@@ -33,16 +37,18 @@ std::vector<int> read(std::istream &input_file) {
     return out;
 }
 
-int subset_sum(std::vector<bool> taken_items, std::vector<int> problem, std::ostream &out = std::cout) {
+std::pair<std::vector<bool>, double> subset_sum(std::vector<bool> solution, std::vector<int> problem, std::ostream &out = std::cout) {
     int sum = 0;
-    for (int i = 0; i < taken_items.size(); i++) {
-        if (taken_items[i]) {
+    for (int i = 0; i < solution.size(); i++) {
+        if (solution[i]) {
             sum += problem[i];
         }
     }
-    log(sum, taken_items, problem, out);
-
-    return sum;
+    if (sum == 0){
+        log(solution, problem, out);
+        return {solution, goal_function(solution)};
+    }
+    return {};
 }
 
 std::vector<bool> random_working_point(int problem_size) {

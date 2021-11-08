@@ -15,8 +15,20 @@ functional
 -
 fstream
 -
+time.h
+-
 subset_sum_problem.hpp
 C:/Users/s20153/CLionProjects/CLion/MHE/subset_sum_problem.hpp
+
+C:/Users/s20153/CLionProjects/CLion/MHE/subset_sum_problem.cpp
+vector
+-
+iostream
+-
+functional
+-
+tuple
+-
 
 C:/Users/s20153/CLionProjects/CLion/MHE/subset_sum_problem.hpp
 
