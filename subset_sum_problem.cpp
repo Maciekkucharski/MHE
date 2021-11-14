@@ -13,9 +13,9 @@ double goal_function(std::vector<bool> solution) {
     return result;
 }
 
-void log(std::vector<bool> solution, std::vector<int> subset, std::ostream &out) {
-    out << "set :" << "\n";
-    for (auto v: subset) {
+void log(std::vector<bool> solution, std::vector<int> problem, std::ostream &out) {
+    out << "problem :" << "\n";
+    for (auto v: problem) {
         out << v << ", ";
     }
     out << std::endl;
@@ -37,7 +37,7 @@ std::vector<int> read(std::istream &input_file) {
     return out;
 }
 
-std::pair<std::vector<bool>, double> subset_sum(std::vector<bool> solution, std::vector<int> problem, std::ostream &out = std::cout) {
+std::pair<std::vector<bool>, double> subset_sum(std::vector<bool> solution, std::vector<int> problem) {
     int sum = 0;
     for (int i = 0; i < solution.size(); i++) {
         if (solution[i]) {
@@ -45,7 +45,6 @@ std::pair<std::vector<bool>, double> subset_sum(std::vector<bool> solution, std:
         }
     }
     if (sum == 0){
-        log(solution, problem, out);
         return {solution, goal_function(solution)};
     }
     return {};
@@ -70,5 +69,19 @@ void iterate_working_point(std::vector<bool> &working_point, int iterator = 0) {
     }
 }
 
+
+std::vector<std::vector<bool>> create_approximate_working_points(std::vector<bool> working_point, std::vector<int> problem) {
+    std::vector<std::vector<bool>> approximate_points;
+
+    for (int i = 0; i < working_point.size(); ++i) {
+        std::vector<bool> working_point_copy = working_point;
+        working_point_copy[i] = !working_point[i];
+        if (!subset_sum(working_point_copy,problem).first.empty()){
+            approximate_points.push_back(working_point_copy);
+        }
+
+    }
+    return approximate_points;
+}
 
 
