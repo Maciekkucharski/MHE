@@ -3,14 +3,13 @@
 #include <functional>
 #include <tuple>
 
-double goal_function(std::vector<bool> solution) {
+double goal_function(std::vector<bool> solution, std::vector<int> problem) {
     double sum = 0;
     for (double i = 0; i < solution.size(); ++i) {
         if (solution[i] == true)
-            sum += pow(2,i);
+            sum += problem[i];
     }
-    double result = 1/sum;
-    return result;
+    return abs(sum);
 }
 
 void log(std::vector<bool> solution, std::vector<int> problem, std::ostream &out) {
@@ -24,20 +23,22 @@ void log(std::vector<bool> solution, std::vector<int> problem, std::ostream &out
         out << v << ", ";
     }
     out << std::endl;
-    out << "result :" << goal_function(solution) << "\n\n" ;
+    out << "result :" << goal_function(solution, problem) << "\n\n" ;
 }
 
 std::vector<int> read(std::istream &input_file) {
+
     std::vector<int> out;
     while (!input_file.eof()) {
         int value;
         input_file >> value;
         out.push_back(value);
+//        std::cout << value;
     }
     return out;
 }
 
-std::pair<std::vector<bool>, double> subset_sum(std::vector<bool> solution, std::vector<int> problem) {
+std::vector<bool> subset_sum(std::vector<bool> solution, std::vector<int> problem) {
     int sum = 0;
     for (int i = 0; i < solution.size(); i++) {
         if (solution[i]) {
@@ -45,7 +46,7 @@ std::pair<std::vector<bool>, double> subset_sum(std::vector<bool> solution, std:
         }
     }
     if (sum == 0){
-        return {solution, goal_function(solution)};
+        return solution;
     }
     return {};
 }
@@ -76,10 +77,7 @@ std::vector<std::vector<bool>> create_approximate_working_points(std::vector<boo
     for (int i = 0; i < working_point.size(); ++i) {
         std::vector<bool> working_point_copy = working_point;
         working_point_copy[i] = !working_point[i];
-        if (!subset_sum(working_point_copy,problem).first.empty()){
-            approximate_points.push_back(working_point_copy);
-        }
-
+        approximate_points.push_back(working_point_copy);
     }
     return approximate_points;
 }

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-E:/Uczelnia/MHE/LAB1/MHE/main.cpp
+C:/Users/s20153/CLionProjects/MHE/main.cpp
 vector
 -
 iostream
@@ -18,7 +18,7 @@ fstream
 time.h
 -
 subset_sum_problem.hpp
-E:/Uczelnia/MHE/LAB1/MHE/subset_sum_problem.hpp
+C:/Users/s20153/CLionProjects/MHE/subset_sum_problem.hpp
 
-E:/Uczelnia/MHE/LAB1/MHE/subset_sum_problem.hpp
+C:/Users/s20153/CLionProjects/MHE/subset_sum_problem.hpp
 
