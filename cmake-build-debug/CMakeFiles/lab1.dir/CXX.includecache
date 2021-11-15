@@ -15,10 +15,14 @@ functional
 -
 fstream
 -
-time.h
+ctime
 -
 subset_sum_problem.hpp
 C:/Users/s20153/CLionProjects/MHE/subset_sum_problem.hpp
+cmath
+-
+random
+-
 
 C:/Users/s20153/CLionProjects/MHE/subset_sum_problem.hpp
 

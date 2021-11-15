@@ -38,19 +38,6 @@ std::vector<int> read(std::istream &input_file) {
     return out;
 }
 
-std::vector<bool> subset_sum(std::vector<bool> solution, std::vector<int> problem) {
-    int sum = 0;
-    for (int i = 0; i < solution.size(); i++) {
-        if (solution[i]) {
-            sum += problem[i];
-        }
-    }
-    if (sum == 0){
-        return solution;
-    }
-    return {};
-}
-
 std::vector<bool> random_working_point(int problem_size) {
     srand(time(NULL));
     std::vector<bool> generated_working_point;

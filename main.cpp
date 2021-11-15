@@ -2,8 +2,10 @@
 #include <iostream>
 #include <functional>
 #include <fstream>
-#include <time.h>
+#include <ctime>
 #include "subset_sum_problem.hpp"
+#include <cmath>
+#include <random>
 
 
 using namespace std;
@@ -31,18 +33,23 @@ vector<bool> hill_climbing(function<double(vector<bool>, vector<int>)> f, vector
 
 
 vector<bool> hill_climbing_stochastic(function<double(vector<bool>, vector<int>)> f, vector<bool> p, vector<int> problem) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distrib(0, p.size()-1);
     int iterator =0;
     while (true) {
 
         vector<bool> p_copy = p;
         vector<vector<bool>> ap_pts = create_approximate_working_points(p_copy, problem);
-        for (auto p2: ap_pts) {
 
-            if (f(p2,problem) < f(p, problem)) {
-                cout << endl<< "iteration : " << iterator << "->" <<  goal_function(p2, problem) << endl;
-                p = p2;
+        for (int i = 0; i < ap_pts.size(); ++i) {
+            int random_iteration = distrib(gen);
+            if (f(ap_pts[random_iteration],problem) < f(p, problem)) {
+                cout << endl<< "iteration : " << iterator << "->" <<  goal_function((ap_pts[random_iteration]), problem) << endl;
+                p = (ap_pts[random_iteration]);
             }
         }
+
         if (p == p_copy) {
             break;
         }
@@ -64,15 +71,24 @@ int main(int argc, char **argv) {
 
     clock_t start = clock();
     vector<bool> best_result = choice;
-    int options = int(pow(2, problem.size()));
-    for (int i = 0; i < options; i++) {
-        cout << "test";
-        vector<bool> result = subset_sum(choice, problem);
-        if (goal_function(result, problem) < goal_function(best_result,problem)){
-            best_result = result;
-        }
-        iterate_working_point(choice);
+    double options = (pow(2, problem.size()));
+//    for (int i = 0; i < options; i++) {
+//        if (goal_function(choice, problem) < goal_function(best_result,problem)){
+//            best_result = choice;
+//            cout << endl << " result :" << "\n";
+//            for (auto v: choice) {
+//                cout << v << ", ";
+//            }
+//            cout << " score : " << goal_function(choice, problem);
+//        }
+//        if (goal_function(best_result, problem) == 0) break;
+//        iterate_working_point(choice);
+//    }
+    cout<< endl << "best result :" << "\n";
+    for (auto v: best_result) {
+        cout << v << ", ";
     }
+    cout << " score : " << goal_function(best_result, problem);
     if (argc == 3) {
         ofstream hook_out;
         hook_out.open(argv[2], std::ios::out);
@@ -89,7 +105,7 @@ int main(int argc, char **argv) {
         hook_out << "time:" << elapsed;
         hook_out.close();
     }
-    cout << "full time:" << elapsed << endl;
+    cout << endl << "full time:" << elapsed << endl;
 
     start = clock();
     vector<bool> wp = random_working_point(problem.size());
@@ -97,6 +113,14 @@ int main(int argc, char **argv) {
     end = clock();
     elapsed = double(end - start) / CLOCKS_PER_SEC;
     cout << "hillclimb time:" << elapsed<<endl;
+
+
+    start = clock();
+    wp = random_working_point(problem.size());
+    test_result = hill_climbing_stochastic(goal_function, wp, problem);
+    end = clock();
+    elapsed = double(end - start) / CLOCKS_PER_SEC;
+    cout << "hillclimb stochastic time:" << elapsed<<endl;
 
 
 
