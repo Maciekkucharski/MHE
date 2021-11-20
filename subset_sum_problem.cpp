@@ -58,7 +58,7 @@ void iterate_working_point(std::vector<bool> &working_point, int iterator = 0) {
 }
 
 
-std::vector<std::vector<bool>> create_approximate_working_points(std::vector<bool> working_point, std::vector<int> problem) {
+std::vector<std::vector<bool>> create_approximate_working_points(std::vector<bool> working_point) {
     std::vector<std::vector<bool>> approximate_points;
 
     for (int i = 0; i < working_point.size(); ++i) {
