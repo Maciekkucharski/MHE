@@ -18,4 +18,4 @@ for algorithm in stats:
         if i == 3:
             av_score.append(value)
 with open(sys.argv[2], 'w') as outfile:
-    print(f"{stats[0][0]},{sum(av_time)/len(av_time)},{sum(av_score)/len(av_score)}", file=outfile)
+    print(f"{stats[0][0]}, {stats[0][1]}, {sum(av_time)/len(av_time)},{sum(av_score)/len(av_score)}", file=outfile)
