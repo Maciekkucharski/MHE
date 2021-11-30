@@ -138,15 +138,15 @@ int main(int argc, char **argv) {
 //    cout << infile;
 //    ifstream hook_in(infile);
 
-    int i = 30;
+    int i = 20;
 
     vector<int> problem = read(hook_in);
     vector<bool> choice = random_working_point(problem.size());
 
     clock_t start = clock();
     //brute force
-    vector<bool> best_result = choice;
-    double options = (pow(2, problem.size()));
+//    vector<bool> best_result = choice;
+//    double options = (pow(2, problem.size()));
 //    for (int i = 0; i < options; i++) {
 //        if (goal_function(choice, problem) < goal_function(best_result,problem)){
 //            best_result = choice;
@@ -183,41 +183,41 @@ int main(int argc, char **argv) {
 //    }
 //    cout << endl << "full time:" << elapsed << endl;
     //hillclimb
-//    for (int j = 0; j < 25; ++j) {
-//        vector<bool> wp = random_working_point(problem.size());
-//        start = clock();
-//
-//        vector<bool> result = hill_climbing(goal_function, wp, problem, i);
-//        end = clock();
-//        elapsed = double(end - start) / CLOCKS_PER_SEC;
-//        cout << "hillclimb time:" << elapsed << endl;
-//
-//        string filename = "hill_climb_size_1000_iterations_10";
-//        ofstream hook_out;
-//        hook_out.open(filename, std::ios_base::app);
-//        hook_out << "hillclimb 1000 " << elapsed << " " << goal_function(result, problem) << endl;
-//        hook_out.close();
-//    }
-//
+    for (int j = 0; j < 10; ++j) {
+        vector<bool> wp = random_working_point(problem.size());
+        start = clock();
+
+        vector<bool> result = hill_climbing(goal_function, wp, problem, i);
+        end = clock();
+        elapsed = double(end - start) / CLOCKS_PER_SEC;
+        cout << "hillclimb time:" << elapsed << endl;
+
+        string filename = "hill_climb_size_3000_iterations_20";
+        ofstream hook_out;
+        hook_out.open(filename, std::ios_base::app);
+        hook_out << "hillclimb 1000 " << elapsed << " " << goal_function(result, problem) << endl;
+        hook_out.close();
+    }
+
 //
 //    //hillclimb stochastic
-//    for (int j = 0; j < 25; ++j) {
-//        vector<bool> wp = random_working_point(problem.size());
-//        start = clock();
-//        wp = random_working_point(problem.size());
-//        vector<bool> result = hill_climbing_stochastic(goal_function, wp, problem, i);
-//        end = clock();
-//        elapsed = double(end - start) / CLOCKS_PER_SEC;
-//        cout << "hillclimb stochastic time:" << elapsed << endl;
-//
-//        string filename = "hill_climb_stochastic_size_1000_iterations_10";
-//        ofstream hook_out;
-//        hook_out.open(filename, std::ios_base::app);
-//        hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result, problem) << endl;
-//        hook_out.close();
-//    }
+    for (int j = 0; j < 10; ++j) {
+        vector<bool> wp = random_working_point(problem.size());
+        start = clock();
+        wp = random_working_point(problem.size());
+        vector<bool> result = hill_climbing_stochastic(goal_function, wp, problem, i);
+        end = clock();
+        elapsed = double(end - start) / CLOCKS_PER_SEC;
+        cout << "hillclimb stochastic time:" << elapsed << endl;
+
+        string filename = "hill_climb_stochastic_size_3000_iterations_20";
+        ofstream hook_out;
+        hook_out.open(filename, std::ios_base::app);
+        hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result, problem) << endl;
+        hook_out.close();
+    }
     //taboo search
-    for (int j = 0; j < 25; ++j) {
+    for (int j = 0; j < 10; ++j) {
         vector<bool> wp = random_working_point(problem.size());
         start = clock();
         vector<bool> result_ts = tabu_search(
@@ -235,7 +235,7 @@ int main(int argc, char **argv) {
         cout << "taboo time:" << elapsed << endl;
 
 
-        string filename = "taboo_size_1000_iterations_10";
+        string filename = "taboo_size_3000_iterations_20";
         ofstream hook_out;
         hook_out.open(filename, std::ios_base::app);
         hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result_ts, problem) << endl;
