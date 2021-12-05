@@ -8,7 +8,7 @@
 #include <random>
 #include <chrono>
 #include <set>
-
+#include "genetic.h"
 
 auto tabu_search = [](
         auto cost,
@@ -129,118 +129,179 @@ vector<bool>hill_climbing_stochastic(function<double(vector<bool>, vector<int>)>
 }
 
 
+
 int main(int argc, char **argv) {
+    //    population_t init_pop(10);
+//    for (auto& p : init_pop) {
+//        for (int i = 0; i < 20; i++)
+//            p.push_back(rand_01(random_engine));
+//    }
+
     string infile = argv[1];
     cout << infile;
     ifstream hook_in(infile);
 
-//    if (argc == 2) infile = argv[1];
-//    cout << infile;
-//    ifstream hook_in(infile);
+    //    if (argc == 2) infile = argv[1];
+    //    cout << infile;
+    //    ifstream hook_in(infile);
 
     int i = 20;
 
     vector<int> problem = read(hook_in);
-    vector<bool> choice = random_working_point(problem.size());
+    auto debug_term_cond = [](auto pop, auto fit, auto i) {
+        std::cout << i << ":";
+        for (auto e : fit) {
+            std::cout << " " << e;
+        }
+        std::cout << std::endl;
+        return i < 100;
+    };
 
-    clock_t start = clock();
-    //brute force
-//    vector<bool> best_result = choice;
-//    double options = (pow(2, problem.size()));
-//    for (int i = 0; i < options; i++) {
-//        if (goal_function(choice, problem) < goal_function(best_result,problem)){
-//            best_result = choice;
-//            cout << endl << " result :" << "\n";
-//            for (auto v: choice) {
-//                cout << v << ", ";
-//            }
-//            cout << " score : " << goal_function(choice, problem);
-//        }
-//        if (goal_function(best_result, problem) == 0) break;
-//        iterate_working_point(choice);
-//    }
-//    cout<< endl << "best result :" << "\n";
-//    for (auto v: best_result) {
-//        cout << v << ", ";
-//    }
-//    cout << " score : " << goal_function(best_result, problem);
-//    if (argc == 3) {
-//        ofstream hook_out;
-//        hook_out.open(argv[2], std::ios::out);
-//        log(best_result, problem, hook_out);
-//        hook_out.close();
-//    }
-//
-//
-    clock_t end = clock();
-    double elapsed = double(end - start) / CLOCKS_PER_SEC;
+    auto crossover_f = one_point_crossover_f;
+    auto mutation_f = uniform_mutation_f;
+    vector<vector<bool>> test_init = create_approximate_working_points(random_working_point(problem.size()));
 
-//    if (argc == 3) {
-//        ofstream hook_out;
-//        hook_out.open(argv[2], std::ios_base::app);
-//        hook_out << "time:" << elapsed;
-//        hook_out.close();
-//    }
-//    cout << endl << "full time:" << elapsed << endl;
-    //hillclimb
-    for (int j = 0; j < 10; ++j) {
-        vector<bool> wp = random_working_point(problem.size());
-        start = clock();
-
-        vector<bool> result = hill_climbing(goal_function, wp, problem, i);
-        end = clock();
-        elapsed = double(end - start) / CLOCKS_PER_SEC;
-        cout << "hillclimb time:" << elapsed << endl;
-
-        string filename = "hill_climb_size_3000_iterations_20";
-        ofstream hook_out;
-        hook_out.open(filename, std::ios_base::app);
-        hook_out << "hillclimb 1000 " << elapsed << " " << goal_function(result, problem) << endl;
-        hook_out.close();
-    }
-
-//
-//    //hillclimb stochastic
-    for (int j = 0; j < 10; ++j) {
-        vector<bool> wp = random_working_point(problem.size());
-        start = clock();
-        wp = random_working_point(problem.size());
-        vector<bool> result = hill_climbing_stochastic(goal_function, wp, problem, i);
-        end = clock();
-        elapsed = double(end - start) / CLOCKS_PER_SEC;
-        cout << "hillclimb stochastic time:" << elapsed << endl;
-
-        string filename = "hill_climb_stochastic_size_3000_iterations_20";
-        ofstream hook_out;
-        hook_out.open(filename, std::ios_base::app);
-        hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result, problem) << endl;
-        hook_out.close();
-    }
-    //taboo search
-    for (int j = 0; j < 10; ++j) {
-        vector<bool> wp = random_working_point(problem.size());
-        start = clock();
-        vector<bool> result_ts = tabu_search(
-                goal_function,
-                [&]() { return wp; },
-                create_approximate_working_points,
-                i,
-                100,
-                problem,
-                [](int c, double dt) {
-                    cout << "# count TS: " << c << "; dt:  " << dt << endl;
-                });
-        end = clock();
-        elapsed = double(end - start) / CLOCKS_PER_SEC;
-        cout << "taboo time:" << elapsed << endl;
-
-
-        string filename = "taboo_size_3000_iterations_20";
-        ofstream hook_out;
-        hook_out.open(filename, std::ios_base::app);
-        hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result_ts, problem) << endl;
-        hook_out.close();
+    auto test = genetic_algorithm(
+            problem,
+            goal_function,
+            test_init,
+            0.11,
+            0.012,
+            crossover_f,
+            mutation_f,
+            selection_roulette,
+            [](auto, auto, auto i){
+                return i<100;
+            }
+          );
+    for (auto a:test) {
+        for (auto e:a){
+            cout << e;
+        }
+        cout << endl;
 
     }
+
+
     return 0;
 }
+
+
+
+//
+//
+//
+//
+//
+//string infile = argv[1];
+//cout << infile;
+//ifstream hook_in(infile);
+//
+////    if (argc == 2) infile = argv[1];
+////    cout << infile;
+////    ifstream hook_in(infile);
+//
+//int i = 20;
+//
+//vector<int> problem = read(hook_in);
+//vector<bool> choice = random_working_point(problem.size());
+//
+//clock_t start = clock();
+////brute force
+////    vector<bool> best_result = choice;
+////    double options = (pow(2, problem.size()));
+////    for (int i = 0; i < options; i++) {
+////        if (goal_function(choice, problem) < goal_function(best_result,problem)){
+////            best_result = choice;
+////            cout << endl << " result :" << "\n";
+////            for (auto v: choice) {
+////                cout << v << ", ";
+////            }
+////            cout << " score : " << goal_function(choice, problem);
+////        }
+////        if (goal_function(best_result, problem) == 0) break;
+////        iterate_working_point(choice);
+////    }
+////    cout<< endl << "best result :" << "\n";
+////    for (auto v: best_result) {
+////        cout << v << ", ";
+////    }
+////    cout << " score : " << goal_function(best_result, problem);
+////    if (argc == 3) {
+////        ofstream hook_out;
+////        hook_out.open(argv[2], std::ios::out);
+////        log(best_result, problem, hook_out);
+////        hook_out.close();
+////    }
+////
+////
+//clock_t end = clock();
+//double elapsed = double(end - start) / CLOCKS_PER_SEC;
+//
+////    if (argc == 3) {
+////        ofstream hook_out;
+////        hook_out.open(argv[2], std::ios_base::app);
+////        hook_out << "time:" << elapsed;
+////        hook_out.close();
+////    }
+////    cout << endl << "full time:" << elapsed << endl;
+////hillclimb
+//for (int j = 0; j < 10; ++j) {
+//vector<bool> wp = random_working_point(problem.size());
+//start = clock();
+//
+//vector<bool> result = hill_climbing(goal_function, wp, problem, i);
+//end = clock();
+//elapsed = double(end - start) / CLOCKS_PER_SEC;
+//cout << "hillclimb time:" << elapsed << endl;
+//
+//string filename = "hill_climb_size_3000_iterations_20";
+//ofstream hook_out;
+//hook_out.open(filename, std::ios_base::app);
+//hook_out << "hillclimb 1000 " << elapsed << " " << goal_function(result, problem) << endl;
+//hook_out.close();
+//}
+//
+////
+////    //hillclimb stochastic
+//for (int j = 0; j < 10; ++j) {
+//vector<bool> wp = random_working_point(problem.size());
+//start = clock();
+//wp = random_working_point(problem.size());
+//vector<bool> result = hill_climbing_stochastic(goal_function, wp, problem, i);
+//end = clock();
+//elapsed = double(end - start) / CLOCKS_PER_SEC;
+//cout << "hillclimb stochastic time:" << elapsed << endl;
+//
+//string filename = "hill_climb_stochastic_size_3000_iterations_20";
+//ofstream hook_out;
+//hook_out.open(filename, std::ios_base::app);
+//hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result, problem) << endl;
+//hook_out.close();
+//}
+////taboo search
+//for (int j = 0; j < 10; ++j) {
+//vector<bool> wp = random_working_point(problem.size());
+//start = clock();
+//vector<bool> result_ts = tabu_search(
+//        goal_function,
+//        [&]() { return wp; },
+//        create_approximate_working_points,
+//        i,
+//        100,
+//        problem,
+//        [](int c, double dt) {
+//            cout << "# count TS: " << c << "; dt:  " << dt << endl;
+//        });
+//end = clock();
+//elapsed = double(end - start) / CLOCKS_PER_SEC;
+//cout << "taboo time:" << elapsed << endl;
+//
+//
+//string filename = "taboo_size_3000_iterations_20";
+//ofstream hook_out;
+//hook_out.open(filename, std::ios_base::app);
+//hook_out << "hillclimb_stochastic 1000 " << elapsed << " " << goal_function(result_ts, problem) << endl;
+//hook_out.close();
+//
+//}
